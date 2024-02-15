@@ -10,6 +10,7 @@ const board = [
 const solution = solveSudoku(board)
 
 if(solution) {
+  console.log('Solução:')
   printBoard(solution)
 } else {
   console.log('Solução não encontrada!')

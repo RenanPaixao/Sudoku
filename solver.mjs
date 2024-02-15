@@ -19,6 +19,7 @@ const isValid = (board, num, row, col) => {
       return false;
     }
   }
+  
   // Verifica a coluna
   for (let i = 0; i < MAX_CELLS; i++) {
     if (board[i][col] === num && i !== row) {
@@ -44,7 +45,12 @@ const solveSudoku = (board) => {
   let queue = [board];
   while (queue.length) {
     // Remove o primeiro estado da fila
+    
+    console.log('Fila:')
+    console.log(queue)
     let currentBoard = queue.shift();
+    console.log('Board atual:')
+    printBoard(currentBoard);
     // Encontra a primeira célula vazia
     let emptyCell = findEmptyCell(currentBoard);
     if (!emptyCell) {
@@ -75,7 +81,6 @@ const printBoard = (board) => {
     return row.map((cel, i) => i === MAX_CELLS - 1 ? `${cel} |` : cel)
   }).map(row => row.join(' | '))
     .join('\n');
-  console.log('Solução:')
   console.log('_________________')
   console.log(boardString);
   console.log('_________________')
